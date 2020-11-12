@@ -163,6 +163,8 @@ class CRM_Kavarapporten_Form_Report_DeelnemerControle extends CRM_Report_Form {
       + ifnull(extra_fta.klantnummer_kava_203, 0) = 0)
       and
         {$this->_aliases['civicrm_event']}.start_date > NOW() - INTERVAL 365 DAY
+      and
+        ifnull({$this->_aliases['civicrm_participant']}.fee_amount, 0) > 0
     ";
   }
 
